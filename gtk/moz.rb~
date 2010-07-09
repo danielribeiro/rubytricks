@@ -1,0 +1,14 @@
+#!/usr/bin/ruby
+# from http://ruby-gnome2.sourceforge.jp/hiki.cgi?Gtk%3A%3AMozEmbed
+
+require 'gtk2'
+require 'gtkmozembed'
+
+w = Gtk::Window.new
+w.title = "Lean & mean browser"
+w.resize(780, 570)
+w << Gtk::MozEmbed.new
+w.child.chrome_mask = Gtk::MozEmbed::ALLCHROME
+w.child.location = "http://www.ruby-lang.org"
+w.show_all
+Gtk.main

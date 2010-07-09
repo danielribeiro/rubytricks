@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource version="2.3.0.1" xmlns="http://www.wxwidgets.org/wxxrc">
+    <object class="wxFrame" name="ID_WXFRAME">
+        <style>wxCAPTION|wxRESIZE_BORDER|wxSYSTEM_MENU|wxCLOSE_BOX</style>
+        <size>400,300</size>
+        <title>ATest</title>
+        <centered>1</centered>
+        <object class="wxNotebook" name="ID_NOTEBOOK">
+            <style>wxBK_DEFAULT</style>
+            <object class="notebookpage">
+                <label>Tab</label>
+                <object class="wxPanel" name="ID_PANEL">
+                    <style>wxSUNKEN_BORDER|wxTAB_TRAVERSAL</style>
+                    <object class="wxButton" name="ID_BUTTON1">
+                        <label>Button</label>
+                    </object>
+                </object>
+            </object>
+            <object class="notebookpage">
+                <label>Tab</label>
+                <object class="wxPanel" name="ID_PANEL1">
+                    <style>wxSUNKEN_BORDER|wxTAB_TRAVERSAL</style>
+                </object>
+            </object>
+            <object class="notebookpage">
+                <label>Tab</label>
+                <object class="wxPanel" name="ID_PANEL2">
+                    <style>wxSUNKEN_BORDER|wxTAB_TRAVERSAL</style>
+                    <object class="wxButton" name="ID_BUTTON">
+                        <size>200,120</size>
+                        <pos>30,10</pos>
+                        <label>Button</label>
+                    </object>
+                </object>
+            </object>
+        </object>
+    </object>
+</resource>

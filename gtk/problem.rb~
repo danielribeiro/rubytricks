@@ -1,0 +1,13 @@
+ require 'gtk2'
+
+ Thread.new do
+   sleep 1 # Look busy
+   exit    # Finished, exit
+ end
+
+ # Main loop
+ loop do
+   # Process all currently pending events
+   Gtk.main_iteration while Gtk.events_pending?
+   print '.'
+ end
