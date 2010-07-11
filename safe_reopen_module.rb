@@ -1,4 +1,5 @@
 #!/usr/bin/env ruby
+
 module M
   def mm
     'mm'
