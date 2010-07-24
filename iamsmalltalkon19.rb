@@ -33,6 +33,7 @@ end
 
 x = Future.new
 x.fn match: '*', path: '/', flags: (%w[nao comente nunca].remove at: 1)
+x.fn :match => '*', :path => '/', :flags => (%w[nao comente nunca].remove at: 1)
 
 require 'json'
 class A

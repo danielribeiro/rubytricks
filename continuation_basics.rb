@@ -2,7 +2,7 @@
 
 def continuation
   puts "Before callcc"
-  out = callcc {|lola| puts "In callcc";return lola}
+  out = callcc {|lola| puts "In callcc #{lola}" ; lola}
   puts "return of cont: #{out}"
   puts "After callcc"
 end

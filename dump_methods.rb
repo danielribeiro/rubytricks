@@ -1,4 +1,11 @@
 #!/usr/bin/env ruby
+
+module Enumerable
+  def self.method_added(m)
+    puts "added method #{m} from #{caller.inspect}"
+  end
+end
+
 class InspectionMethod
   def initialize(target, methodName, type)
     @methodName = methodName
@@ -153,7 +160,7 @@ end
 
 x = "variable"
 enhance(x)
-puts x.sing
+#puts x.sing
 
 class W
   def self.oi
@@ -179,7 +186,8 @@ end
 include InspectionTypes
 #Inspector.new.printMethods(lambda {||}, ALL)
 #puts "\n\n\nfunction\n\n"
-# Inspector.new.printMethods(Q, PUBLIC)
+require 'active_record'
+#Inspector.new.printMethods(Enumerable, PUBLIC)
 #Inspector.new.printMethods(Class.new, ALL)
 ##puts "De Classe"
 #Inspector.new.printMethods(A, PUBLIC)
