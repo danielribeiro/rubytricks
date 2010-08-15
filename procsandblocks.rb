@@ -38,11 +38,14 @@ def d(&block)
 
 end
 
-d { procnew } # prints "return from foo from inside proc"
-d { lambdacall } # prints "return from bar"
-d { procinvoke }
+#d { procnew } # prints "return from foo from inside proc"
+#d { lambdacall } # prints "return from bar"
+#d { procinvoke }
+bl  = lambda do
+  return "return from foo from inside proc"
+end
 d { calling(:lambda, lambda { return "return from foo from inside proc" }) }
-d { calling(:proc, proc { return "return from foo from inside proc" })}
+#d { calling(:proc, proc { return "return from foo from inside proc" })}
 
 def outofhere
   puts "getting out of here"
@@ -50,4 +53,4 @@ def outofhere
   d { fromyield { return 'outter '} }# throws exception
 end
 
-outofhere
+#outofhere

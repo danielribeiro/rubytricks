@@ -186,8 +186,8 @@ end
 include InspectionTypes
 #Inspector.new.printMethods(lambda {||}, ALL)
 #puts "\n\n\nfunction\n\n"
-require 'active_record'
-#Inspector.new.printMethods(Enumerable, PUBLIC)
+#require 'active_record'
+Inspector.new.printMethods(Enumerable, PUBLIC)
 #Inspector.new.printMethods(Class.new, ALL)
 ##puts "De Classe"
 #Inspector.new.printMethods(A, PUBLIC)

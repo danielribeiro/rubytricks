@@ -9,7 +9,7 @@ def selfcall(count)
 end
 
 begin
-  selfcall 6000
+  selfcall 5000
 rescue SystemStackError => ex
   puts "Stacked out at #{$TOTAL}"
   raise

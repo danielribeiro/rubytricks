@@ -1,0 +1,13 @@
+  def while_autenticated(*args, &block)
+    content_type :json
+    begin
+      instance_exec(*args, &block).to_json if logged_in?
+    rescue Exception => ex
+      Storentell.logmessage ex.message + "\n      " +
+        ex.backtrace.join("\n      ")
+      badRequest
+      return { :error => ex.message }.to_json
+    end
+    unauthorized
+    return { :error => 'authentication required'}.to_json
+  end
