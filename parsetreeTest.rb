@@ -25,21 +25,29 @@ require 'parse_tree'
 
 class SelfAnalizable
   define_method(:lala) {
-    x = 6
-    a, b = 1, 6
-    if arg1 == 0 then
-      return 1
-    end
-    for i in 1..5
-      puts i
-    end
-    y = x + a + double!("string literal")
-    y += 1 if y > 10
-    if y > 10
-      x += 1
-    end
-    z = y +x + 5 + 6
-    return y
+#    x = 6
+#    a, b = 1, 6
+#    ar.map _.and(5).meat
+#    ar.map { |x| x.and(5).meat}
+    i = create
+    map(i.go(compute(_)))
+    map(i.go(compute(_ + 5)))
+    map(:lala) { i.go(compute(_)) }
+    map(:lala) { |x| i.go(compute(x))}
+#    map compute(_)
+#    if arg1 == 0 then
+#      return 1
+#    end
+#    for i in 1..5
+#      puts i
+#    end
+#    y = x + a + double!("string literal")
+#    y += 1 if y > 10
+#    if y > 10
+#      x += 1
+#    end
+#    z = y +x + 5 + 6
+#    return y
   }
 
   def analize(target = self.class, method = :lala)
@@ -53,8 +61,8 @@ end
 
 sexp = SelfAnalizable.new.analize
 unifier = Unifier.new
-#unifier.processors.each do |p|
-#  p.unsupported.delete :cfunc
-#end
+unifier.processors.each do |p|
+  p.unsupported.delete :cfunc
+end
 sexp = unifier.process(sexp)
 puts Ruby2Ruby.new.process(sexp)

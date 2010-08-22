@@ -22,6 +22,7 @@ end
 p myfind [1, 3, 9, 12]
 p myfind_with_for([1, 3, 9, 12])
 p myfind_bl([1, 3, 9, 12]) { |i| return i if i > 40}
+p myfind_bl([1, 3, 9, 12]) { |i| puts self}
 p myfind_bl([1, 3, 9, 12]) { |i| i if i > 4}
 x = myfind_bl [1, 3, 9, 12] do |i|
   if i > 4
