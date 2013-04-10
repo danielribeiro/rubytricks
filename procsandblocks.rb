@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby
 def procnew
   f = Proc.new { return "return from foo from inside proc" }
   f.call # control leaves procnew here
@@ -21,6 +20,7 @@ def procinvoke
 end
 
 def fromyield(&block)
+  puts "from yield"
   yield
   puts "after f.call on #{__method__}"
   return "return from #{__method__}"
@@ -38,7 +38,7 @@ def d(&block)
     puts yield
     puts ""
   rescue Exception => ex
-    puts "! error: #{ex}"
+    puts "! error: #{ex}\n"
   end
 
 end
@@ -46,6 +46,7 @@ end
 d { procnew } # prints "return from foo from inside proc"
 d { lambdacall } # prints "return from lambdacall"
 d { procinvoke }
+d { fromyield { return 'outter '} }# throws exception
 d { calling(:lambda, lambda { return "return from foo from inside proc" }) }
 d { calling(:proc, proc { return "return from foo from inside proc" })}
 
@@ -65,6 +66,8 @@ outofhere
 #
 #inner return from procinvoke
 #
+#from yield
+#! error: unexpected return
 #calling: lambda
 #after f.call on calling
 #return from calling: lambda
