@@ -1,5 +1,5 @@
 #!/usr/bin/ruby
-# do rackhash :http://github.com/sickill/racksh/blob/master/lib/racksh/version.rb
+# inspired on rackhash :http://github.com/sickill/racksh/blob/master/lib/racksh/version.rb
 require "irb"
 require "irb/completion"
 
